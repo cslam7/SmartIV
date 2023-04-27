@@ -3,8 +3,9 @@
   and corresponding control logic
 */
 
-#include <Display.h>
+#include "Display.h"
 
+extern int DisplayActive;
 void DisplayTask() {
 
 }

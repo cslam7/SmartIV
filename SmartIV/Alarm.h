@@ -1,5 +1,5 @@
 /*
-  Function prototypes for Alarm.c
+  Function prototypes for Alarm.cpp
 */
 
 //  Logic to control alarm states
