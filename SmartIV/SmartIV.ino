@@ -46,16 +46,15 @@ void setup() {
 
   // set appropriate input/output config for sensor pins
   pinMode(TOP_SENSOR_POWER_PIN, OUTPUT);
-  pinMode(TOP_SENSOR_OUTPUT_PIN, INPUT);
+  pinMode(TOP_SENSOR_OUTPUT_PIN, INPUT_PULLUP);
   pinMode(BOT_SENSOR_POWER_PIN, OUTPUT);
-  pinMode(BOT_SENSOR_OUTPUT_PIN, INPUT);
+  pinMode(BOT_SENSOR_OUTPUT_PIN, INPUT_PULLUP);
 
   // Initialize serial port with desired baud rate
   Serial.begin(BAUD_RATE);
 }
 
 void loop() {
-
   if (SensorsActive) {
     SensorsTask();
   }
