@@ -7,6 +7,8 @@
 #define BOT_SENSOR_POWER_PIN 8
 #define BOT_SENSOR_OUTPUT_PIN 9
 
+#define TRUE 1
+#define FALSE 0
 extern int SensorsActive;
 extern int ComputeActive;
 extern int maxDropBufferLength;
