@@ -15,7 +15,7 @@ void SensorsTask() {
   attachInterrupt(digitalPinToInterrupt(TOP_SENSOR_OUTPUT_PIN), record, FALLING);
   if (dropSensed == TRUE) {
       noInterrupts();
-      if((millis() - lastISRFired) > 50){
+      if((millis() - lastISRFired) > 500){
         dropCount++;
         //Serial.println(dropCount);
         // if initial drop, then start timer
