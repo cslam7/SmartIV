@@ -25,7 +25,13 @@ void SensorsTask() {
           Serial.println("///ignore");
         } else {
           newDropTime = millis();
-          Serial.println(newDropTime-oldDropTime);
+          // Output is timestamp,dropCount,deltaDropTime,flowrate
+          Serial.print(",")
+          Serial.print(dropCount);
+          Serial.print(",");
+          Serial.print(newDropTime-oldDropTime);
+          Serial.print(",");
+          Serial.println((3600) / (20 * (newDropTime-oldDropTime)/1000));
           dropTimeBuffer[writePtr++] = newDropTime - oldDropTime;
           writePtr %= maxDropBufferLength;
           oldDropTime = newDropTime;
