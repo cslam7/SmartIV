@@ -20,6 +20,15 @@ int dropCount;
 unsigned long oldDropTime;
 unsigned long newDropTime;
 
+int maxDropBufferLength2 = MAX_BUFFER_LENGTH;
+int dropTimeBuffer2[MAX_BUFFER_LENGTH];
+int currDropBufferLength2;
+int writePtr2;
+int dropCount2;
+unsigned long oldDropTime2;
+unsigned long newDropTime2;
+
+
 // Flags for each task
 int SensorsActive;
 int ComputeActive;
