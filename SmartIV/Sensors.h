@@ -18,14 +18,6 @@ extern int dropCount;
 extern unsigned long oldDropTime;
 extern unsigned long newDropTime;
 
-//copies
-extern int maxDropBufferLength2;
-extern int dropTimeBuffer2[];
-extern int writePtr2;
-extern int dropCount2;
-extern unsigned long oldDropTime2;
-extern unsigned long newDropTime2;
-
 extern int SensorState;
 
 enum SensorStates {
@@ -38,4 +30,3 @@ void SensorsTask();
 
 // ISR Logic to record drop time
 void record();
-void record2();

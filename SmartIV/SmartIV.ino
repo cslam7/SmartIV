@@ -20,15 +20,6 @@ int dropCount;
 unsigned long oldDropTime;
 unsigned long newDropTime;
 
-int maxDropBufferLength2 = MAX_BUFFER_LENGTH;
-int dropTimeBuffer2[MAX_BUFFER_LENGTH];
-int currDropBufferLength2;
-int writePtr2;
-int dropCount2;
-unsigned long oldDropTime2;
-unsigned long newDropTime2;
-
-
 // Flags for each task
 int SensorsActive;
 int ComputeActive;
@@ -58,7 +49,9 @@ void setup() {
   pinMode(TOP_SENSOR_OUTPUT_PIN, INPUT_PULLUP);
   pinMode(BOT_SENSOR_POWER_PIN, OUTPUT);
   pinMode(BOT_SENSOR_OUTPUT_PIN, INPUT_PULLUP);
-
+  
+  attachInterrupt(digitalPinToInterrupt(TOP_SENSOR_OUTPUT_PIN), record, FALLING);
+  attachInterrupt(digitalPinToInterrupt(BOT_SENSOR_OUTPUT_PIN), record, FALLING);
   // Initialize serial port with desired baud rate
   Serial.begin(BAUD_RATE);
 }
