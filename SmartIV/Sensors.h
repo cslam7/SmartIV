@@ -9,21 +9,22 @@
 
 #define TRUE 1
 #define FALSE 0
+#define DEBOUNCE_DELAY 500
 extern int SensorsActive;
 extern int ComputeActive;
-extern int maxDropBufferLength;
-extern int dropTimeBuffer[];
-extern int writePtr;
+extern int DisplayActive;
+extern int dropSensed;
 extern int dropCount;
+extern int missedDropCount;
+extern int consecutiveMissedDropCount;
 extern unsigned long oldDropTime;
 extern unsigned long newDropTime;
-
-extern int SensorState;
-
-enum SensorStates {
-  BOTH_ON = 1,
-  BOTH_OFF = 2
-};
+extern unsigned long oldDeltaT;
+extern unsigned long newDeltaT;
+extern unsigned long turnOnTime;
+extern int deltaTBound;
+extern int calibrateDropCount;
+extern int SensorsState;
 
 //  Logic to control for smart sampling and sleep states
 void SensorsTask();

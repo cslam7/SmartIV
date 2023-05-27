@@ -8,4 +8,9 @@
 extern int DisplayActive;
 void DisplayTask() {
 
+  Serial.print(",");
+  Serial.print(dropCount);
+  Serial.print(",");
+  Serial.println(oldDeltaT);
+  DisplayActive = FALSE;
 }
