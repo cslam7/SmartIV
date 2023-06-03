@@ -4,21 +4,22 @@
 #include <Arduino.h>
 #include "Compute.h"
 
-// extern int ComputeAlive;
 void ComputeTask() {
 
-  //totalVolume = dropCount / GTT;
   missedVolume = missedDropCount / GTT;
-  if (missedVolume > ML_DANGER) {
+  float missedVolumeThreshold = (millis() * ML_DANGER) / (3600.0 * 1000);
+  if (missedVolume > missedVolumeThreshold) {
     dangerAlarm = TRUE;
   }
   if (consecutiveMissedDropCount == 1) {
-    warningAlarm = TRUE;
+    warningAlarm = 1;
   } else if (consecutiveMissedDropCount >= 2) {
     consecutiveMissedDropCount = 0;
     calibrateDropCount = 0;
+    warningAlarm = 2;
+  } else {
+    warningAlarm = 0;
   }
-  // compute the flow rate here
   ComputeActive = FALSE;
   AlarmActive = TRUE;
 }
